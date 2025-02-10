@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Comentarios de la Película{% endblock %}
+
+{% block content %}
+<h2>Comentarios</h2>
+
+{% if user.is_authenticated %}
+    <a href="{% url 'comment_create' movie_id %}" class="btn">Agregar Comentario</a>
+{% endif %}
+
+<ul>
+    {% for comment in comments %}
+        <li>{{ comment.user.username }}: {{ comment.content }}
+            {% if user.is_authenticated and user == comment.user %}
+                <a href="{% url 'comment_delete' comment.id %}">Eliminar</a>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

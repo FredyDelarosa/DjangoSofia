@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ movie.title }}{% endblock %}
+
+{%load static%}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+</head>
+<div class="detail-container">
+    <h2>{{ movie.title }}</h2>
+    <p>{{ movie.description }}</p>
+    <p><strong>Fecha de estreno:</strong> {{ movie.release_date }}</p>
+    
+    {% if movie.poster %}
+        <img class="movie-poster" src="{{ movie.poster.url }}" alt="{{ movie.title }}">
+    {% endif %}
+
+    {% if user.is_authenticated %}
+        <div class="action-buttons">
+            <a href="{% url 'movie_edit' movie.id %}">Editar</a>
+            <a href="{% url 'movie_delete' movie.id %}">Eliminar</a>
+        </div>
+    {% endif %}
+
+    <div class="comments-section">
+        <h3>Comentarios</h3>
+        <ul>
+            {% for comment in movie.comments.all %}
+                <li>
+                    <strong>{{ comment.user.username }}</strong>: {{ comment.content }}  
+                    <small>({{ comment.created_at|date:"d/m/Y H:i" }})</small>
+                    {% if user.is_authenticated and user == comment.user %}
+                        <a href="{% url 'comment_edit' comment.id %}">Editar</a>
+                        <a href="{% url 'comment_delete' comment.id %}">Eliminar</a>
+                    {% endif %}
+                </li>
+            {% empty %}
+                <p>No hay comentarios aún. Sé el primero en comentar.</p>
+            {% endfor %}
+        </ul>
+
+        {% if user.is_authenticated %}
+            <div class="comment-form">
+                <h4>Agregar un comentario</h4>
+                <form method="post" action="{% url 'comment_create' movie.id %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Publicar</button>
+                </form>
+            </div>
+        {% else %}
+            <p><a href="{% url 'login' %}">Inicia sesión</a> para comentar.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

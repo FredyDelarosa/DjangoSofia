@@ -1,0 +1,414 @@
+/*
+Theme Name:tema-hijo
+Template: twentytwentyfive
+Author:yara
+Version: 1.0
+Description: Tema hijo de Twenty Twenty-Five.
+*/
+
+/* ==========================
+   ESTILOS PERSONALIZADOS
+   ========================== */
+
+/* 1. Cambiar el color de fondo del sitio */
+body {
+    background-color: #fcaaaa;
+}
+
+/* 2. Modificar la tipografía de los encabezados */
+h1, h2, h3 {
+    font-family: "Arial", sans-serif;
+    color: #333;
+}
+
+/* 3. Cambiar el color de los enlaces */
+a {
+    color: #0073aa;
+}
+
+a:hover {
+    color: #005177;
+}
+
+/* 4. Personalizar el footer */
+.site-footer {
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estilo del botón */
+.custom-button {
+    background-color: #d89aa0; /* Color rosa */
+    color: #3b0710; /* Color del texto */
+    border: none;
+    border-radius: 50px; /* Bordes redondeados */
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Efecto hover */
+.custom-button:hover {
+    background-color: #c47b85; /* Un tono más oscuro al pasar el mouse */
+}
+
+.close-button button{
+    background-color: #8a373f;
+    padding: 12px 24px;
+    border-radius: 20px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.close-button button:hover {
+    background-color: #c47b85; /* Un tono más oscuro al pasar el mouse */
+}
+
+.register-class {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px; /* Ancho del formulario */
+    margin: 50px auto; /* Centrado horizontal */
+    padding: 20px;
+    background: #f9e1e3; /* Color de fondo */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.register-name,
+.register-password,
+.register-confpassword {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    width: 350px;
+    margin-bottom: 15px;
+}
+
+
+.register-name label,
+.register-password label,
+.register-confpassword label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+
+.register-class input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+.register-class button {
+    width: 368px;
+    padding: 12px;
+    background-color: #d89aa0;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-left: 15px;
+}
+
+
+.register-class button:hover {
+    background-color: #c47b85;
+}
+
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    margin: 50px auto; 
+    padding: 20px;
+    background: #f9e1e3; /* Color de fondo */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Alinear los campos */
+.login-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Mejorar los labels */
+.login-field label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Estilizar los inputs */
+.login-form input {
+    width: 370px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Botón de iniciar sesión */
+.login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #d89aa0;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Efecto hover del botón */
+.login-button:hover {
+    background-color: #c47b85;
+}
+
+/* Mensaje de error */
+.error-message {
+    color: #ff0000;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+
+.register-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #0073aa;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    color: #005177;
+}
+
+/* Estilo general para los formularios de eliminación */
+.delete-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+}
+
+/* Título de la sección */
+.delete-container h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilo para el formulario */
+.delete-container form {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* Botón de eliminar */
+.delete-container button {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
+.delete-container button:hover {
+    background-color: #c0392b;
+}
+
+/* Enlace de cancelar */
+.delete-container a {
+    background-color: #2b76a8;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-container a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+/*
+Theme Name: Twenty Twenty-Five
+Theme URI: https://wordpress.org/themes/twentytwentyfive/
+Author: the WordPress team
+Author URI: https://wordpress.org
+Description: Twenty Twenty-Five emphasizes simplicity and adaptability. It offers flexible design options, supported by a variety of patterns for different page types, such as services and landing pages, making it ideal for building personal blogs, professional portfolios, online magazines, or business websites. Its templates cater to various blog styles, from text-focused to image-heavy layouts. Additionally, it supports international typography and diverse color palettes, ensuring accessibility and customization for users worldwide.
+Requires at least: 6.7
+Tested up to: 6.7
+Requires PHP: 7.2
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: twentytwentyfive
+Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, sticky-post, threaded-comments, translation-ready, wide-blocks, block-styles, style-variations, accessibility-ready, blog, portfolio, news
+*/
+
+/*
+ * Link styles
+ * https://github.com/WordPress/gutenberg/issues/42319
+ */
+ a {
+	text-decoration-thickness: 1px !important;
+	text-underline-offset: .1em;
+}
+
+/* Focus styles */
+:where(.wp-site-blocks *:focus) {
+	outline-width: 2px;
+	outline-style: solid;
+}
+
+/* Increase the bottom margin on submenus, so that the outline is visible. */
+.wp-block-navigation .wp-block-navigation-submenu .wp-block-navigation-item:not(:last-child) {
+	margin-bottom: 3px;
+}
+
+/* Increase the outline offset on the parent menu items, so that the outline does not touch the text. */
+.wp-block-navigation .wp-block-navigation-item .wp-block-navigation-item__content {
+	outline-offset: 4px;
+}
+
+/* Remove outline offset from the submenus, otherwise the outline is visible outside the submenu container. */
+.wp-block-navigation .wp-block-navigation-item ul.wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+	outline-offset: 0;
+}
+
+/*
+ * Progressive enhancement to reduce widows and orphans
+ * https://github.com/WordPress/gutenberg/issues/55190
+ */
+h1, h2, h3, h4, h5, h6, blockquote, caption, figcaption, p {
+	text-wrap: pretty;
+}
+
+/*
+ * Change the position of the more block on the front, by making it a block level element.
+ * https://github.com/WordPress/gutenberg/issues/65934
+*/
+.more-link {
+	display: block;
+}
+
+/* Estilizar el header */
+header {
+    background: linear-gradient(135deg, #fcaaaa, #d89aa0);
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 4px solid #c47b85;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilizar el título principal */
+header h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 42px;
+    font-weight: bold;
+    color: #3b0710;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Navegación */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #3b0710;
+    padding: 10px 15px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #c47b85;
+    color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Asegurar que el body y html ocupen toda la altura de la ventana */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hacer que el contenido principal ocupe el espacio disponible */
+main {
+    flex: 1;
+}
+
+/* Estilizar el footer para que sea igual al header */
+footer {
+    background: linear-gradient(135deg, #fcaaaa, #d89aa0); /* Mismo degradado */
+    color: #3b0710; /* Mismo color de texto */
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    border-top: 4px solid #c47b85; /* Borde superior similar al header */
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.2); /* Mismo efecto de sombra */
+}
+

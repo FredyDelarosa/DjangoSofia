@@ -1,0 +1,145 @@
+/* =========================
+   ESTILOS PARA PÁGINAS DE DETALLE
+   ========================= */
+
+/* Contenedor principal */
+.detail-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fffaf0; /* Fondo crema suave */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Títulos */
+.detail-container h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 32px;
+    color: #8b2a35; /* Rojo vino */
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Información general */
+.detail-container p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Etiquetas en negrita */
+.detail-container strong {
+    color: #5a1920;
+    font-weight: bold;
+}
+
+/* Botones de acción */
+.detail-container .action-buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.detail-container .action-buttons a {
+    display: inline-block;
+    background-color: #8b2a35;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    margin: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.detail-container .action-buttons a:hover {
+    background-color: #5a1920;
+    transform: scale(1.05);
+}
+
+/* Imagen en movie_detail */
+.detail-container .movie-poster {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Sección de comentarios */
+.comments-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fbe3e8;
+    border-radius: 8px;
+}
+
+.comments-section h3 {
+    font-size: 24px;
+    color: #8b2a35;
+    margin-bottom: 15px;
+}
+
+.comments-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.comments-section li {
+    background: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comments-section strong {
+    color: #5a1920;
+}
+
+.comments-section small {
+    color: #777;
+    font-size: 14px;
+}
+
+.comments-section a {
+    font-size: 14px;
+    color: #8b2a35;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.comments-section a:hover {
+    text-decoration: underline;
+}
+
+/* Formulario de comentario */
+.comment-form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.comment-form form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.comment-form button {
+    background-color: #8b2a35;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.comment-form button:hover {
+    background-color: #5a1920;
+    transform: scale(1.05);
+}

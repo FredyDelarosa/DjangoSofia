@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ award.name }}{% endblock %}
+
+{%load static%}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+</head>
+<div class="detail-container">
+    <h2>{{ award.name }}</h2>
+    <p><strong>Categoría:</strong> {{ award.category }}</p>
+    <p><strong>Año:</strong> {{ award.year }}</p>
+    {% if award.movie %}
+        <p><strong>Película Asociada:</strong> <a href="{% url 'movie_detail' award.movie.id %}">{{ award.movie.title }}</a></p>
+    {% endif %}
+    <p>{{ award.description }}</p>
+
+    {% if user.is_authenticated %}
+        <div class="action-buttons">
+            <a href="{% url 'award_edit' award.id %}">Editar</a>
+            <a href="{% url 'award_delete' award.id %}">Eliminar</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

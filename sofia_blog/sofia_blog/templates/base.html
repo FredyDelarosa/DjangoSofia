@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Blog de Sofia Coppola{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Blog de Sofia Coppola</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Inicio</a></li>
+                <li><a href="{% url 'article_list' %}">Artículos</a></li>
+                <li><a href="{% url 'movie_list' %}">Películas</a></li>
+                <li><a href="{% url 'award_list' %}">Premios</a></li>
+    
+                {% if user.is_authenticated %}
+    <li>
+        
+        <form method="post" action="{% url 'logout' %}" class="close-button">
+            {% csrf_token %}
+            <p>Hola, {{ user.username }}</p>
+            <input type="hidden" name="next" value="{% url 'home' %}">
+            <div class="close-button">
+                <button type="submit">Cerrar sesión</button>   
+              </div>     
+         </form>
+          
+    </li>
+{% else %}
+    <div class="form-login">
+    <li><a href="{% url 'login' %}">Iniciar sesión</a></li>
+    <li><a href="{% url 'register' %}">Registrarse</a></li>
+    </div>
+{% endif %}
+
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>© 2025 Blog de Sofia Coppola</p>
+    </footer>
+</body>
+</html>

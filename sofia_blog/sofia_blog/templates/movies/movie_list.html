@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Películas{% endblock %}
+
+{%load static%}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/movie_list.css' %}">
+</head>
+<div class="movie-list-page">
+    <h2>Lista de Películas</h2>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'movie_create' %}" class="btn">🎬 Agregar Película</a>
+    {% endif %}
+
+    <ul>
+        {% for movie in movies %}
+            <li><a href="{% url 'movie_detail' movie.id %}">{{ movie.title }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

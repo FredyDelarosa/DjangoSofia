@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Agregar/Editar Premio{% endblock %}
+
+{%load static%}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+</head>
+<div class="form-container">
+    <h2>{% if form.instance.id %}Editar{% else %}Agregar{% endif %} Premio</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}  {# Esto incluirá el input de tipo date correctamente #}
+    <button type="submit">Guardar</button>
+</form>
+<a href="{% url 'award_list' %}">Cancelar</a>
+</div>
+{% endblock %}

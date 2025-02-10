@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{%load static%}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<h2>Bienvenido al Blog de Sofia Coppola</h2>
+<p>Explora artículos y películas sobre su carrera.</p>
+<ul>
+    <li><a href="{% url 'article_list' %}">Ver Artículos</a></li>
+    <li><a href="{% url 'movie_list' %}">Ver Películas</a></li>
+</ul>
+{% endblock %}

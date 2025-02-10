@@ -1,0 +1,91 @@
+/* =========================
+   ESTILOS GENERALES DE FORMULARIOS
+   ========================= */
+
+/* Contenedor del formulario */
+.form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff3f3; /* Fondo rosa suave */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Títulos del formulario */
+.form-container h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    color: #8b2a35; /* Rojo vino */
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos de los labels */
+.form-container label {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: #3b0710;
+    margin-top: 15px;
+}
+
+/* Inputs y textareas */
+.form-container input,
+.form-container select,
+.form-container textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #d89aa0;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #3b0710;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Cambios al hacer focus */
+.form-container input:focus,
+.form-container select:focus,
+.form-container textarea:focus {
+    border-color: #8b2a35; /* Rojo vino */
+    box-shadow: 0 0 10px rgba(139, 42, 53, 0.4);
+    outline: none;
+}
+
+/* Botones */
+.form-container button {
+    background-color: #8b2a35; /* Rojo vino */
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover en botones */
+.form-container button:hover {
+    background-color: #5a1920; /* Tonalidad más oscura */
+    transform: scale(1.05);
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Enlace de cancelar */
+.form-container a {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 16px;
+    color: #8b2a35;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.form-container a:hover {
+    color: #5a1920;
+    text-decoration: underline;
+}
