@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block title %}Artículos en Tiempo Real{% endblock %}
+
+{% block content %}
+<h2>Lista de Artículos</h2>
+<ul id="article-list"></ul>
+
+<h2>Agregar un Nuevo Artículo</h2>
+<input type="text" id="title" placeholder="Título">
+<textarea id="content" placeholder="Contenido"></textarea>
+<button onclick="sendArticle()">Enviar</button>
+
+<script>
+    function connectWebSocket() {
+        const socket = new WebSocket("wss://ebef-187-188-26-191.ngrok-free.app/ws/articles/");
+
+        socket.onopen = function() {
+            console.log("✅ Conectado al WebSocket");
+        };
+
+        socket.onmessage = function(event) {
+            console.log("📩 Mensaje recibido del servidor:", event.data);
+        
+            try {
+                const data = JSON.parse(event.data);
+                const articleList = document.getElementById("article-list");
+        
+                if (data.type === "article_list") {
+                    console.log("📜 Lista de artículos recibida.");
+                    articleList.innerHTML = "";  
+                    data.articles.forEach(article => addArticleToList(article));
+                } else if (data.type === "new_article") {
+                    console.log("🆕 Nuevo artículo recibido:", data);
+                    addArticleToList(data);
+                }
+            } catch (error) {
+                console.error("⚠ Error al procesar mensaje WebSocket:", error);
+            }
+        };
+
+        socket.onerror = function(error) {
+            console.error("❌ Error en WebSocket:", error);
+        };
+
+        socket.onclose = function(event) {
+            console.warn("⚠ WebSocket cerrado. Código:", event.code, "Razón:", event.reason);
+            setTimeout(connectWebSocket, 3000);  // REINTENTAR CONEXIÓN AUTOMÁTICAMENTE
+        };
+
+        window.sendArticle = function() {
+            const title = document.getElementById("title").value;
+            const content = document.getElementById("content").value;
+
+            if (title && content) {
+                console.log("📤 Enviando nuevo artículo:", title, content);
+                socket.send(JSON.stringify({
+                    action: "create_article",
+                    title: title,
+                    content: content
+                }));
+
+                document.getElementById("title").value = "";
+                document.getElementById("content").value = "";
+            } else {
+                alert("Por favor, completa todos los campos.");
+            }
+        };
+    }
+
+    function addArticleToList(article) {
+        const articleList = document.getElementById("article-list");
+        const listItem = document.createElement("li");
+        listItem.textContent = `${article.title} - ${article.content}`;
+        articleList.appendChild(listItem);
+    }
+
+    connectWebSocket();
+
+</script>
+
+{% endblock %}
