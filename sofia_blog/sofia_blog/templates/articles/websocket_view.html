@@ -13,8 +13,7 @@
 
 <script>
     function connectWebSocket() {
-        const socket = new WebSocket("wss://ebef-187-188-26-191.ngrok-free.app/ws/articles/");
-
+        const socket = new WebSocket("wss://17d4-201-162-232-69.ngrok-free.app/ws/articles/");
         socket.onopen = function() {
             console.log("✅ Conectado al WebSocket");
         };
@@ -37,7 +36,7 @@
             } catch (error) {
                 console.error("⚠ Error al procesar mensaje WebSocket:", error);
             }
-        };
+        };        
 
         socket.onerror = function(error) {
             console.error("❌ Error en WebSocket:", error);
@@ -70,10 +69,17 @@
 
     function addArticleToList(article) {
         const articleList = document.getElementById("article-list");
+    
         const listItem = document.createElement("li");
-        listItem.textContent = `${article.title} - ${article.content}`;
-        articleList.appendChild(listItem);
+        listItem.innerHTML = `<strong>${article.title}</strong> - ${article.content}`;
+    
+        articleList.prepend(listItem);  
+    
+        // 🔄 FORZAR RE-RENDERIZACIÓN
+        articleList.style.display = "none";
+        setTimeout(() => articleList.style.display = "block", 10);
     }
+    
 
     connectWebSocket();
 
